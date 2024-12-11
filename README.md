@@ -30,6 +30,9 @@ __Las dependencias hay que añadirlas al archivo pom.xml__
   Interfaz que calcula el %FG y el %eFG de un jugador y va rellenando en un Excel cada uno de los cálculos realizados.
   https://unaneuronaparacadadeporte.com/2015/07/19/estadisticas-nba-fg-vs-efg/
 
+## Versión 1.5: 
+  También calculará el %TS, para lo que nos harán falta los tiros libres. En la hoja de cálculo generada habrá una última fila en la que pondrá las medias.
+
 
 ## Muchas gracias por tomar el tiempo de leer esto 🎁
 -    Comenta a otros sobre este proyecto 📢

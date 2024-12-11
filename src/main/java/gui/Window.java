@@ -25,8 +25,12 @@ public class Window extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         triples = new javax.swing.JTextField();
-        tirosCampoTotales = new javax.swing.JTextField();
+        tirosLibresTotales = new javax.swing.JTextField();
         dobles = new javax.swing.JTextField();
+        jlabel6 = new javax.swing.JLabel();
+        tirosCampoTotales = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        libres = new javax.swing.JTextField();
         logoPanel = new javax.swing.JPanel();
         informador = new javax.swing.JLabel();
         Logo = new javax.swing.JLabel();
@@ -44,16 +48,21 @@ public class Window extends javax.swing.JPanel {
 
         jlabel5.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jlabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlabel5.setText("Tiros de campo totales");
+        jlabel5.setText("Tiros libres intentados");
         jlabel5.setPreferredSize(new java.awt.Dimension(170, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 8;
         formPanel.add(jlabel5, gridBagConstraints);
 
         tirosCampoAcertados.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
         tirosCampoAcertados.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
         tirosCampoAcertados.setPreferredSize(new java.awt.Dimension(93, 25));
+        tirosCampoAcertados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tirosCampoAcertadosActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -65,10 +74,7 @@ public class Window extends javax.swing.JPanel {
         jLabel2.setToolTipText("");
         jLabel2.setMaximumSize(new java.awt.Dimension(200, 19));
         jLabel2.setPreferredSize(new java.awt.Dimension(200, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        formPanel.add(jLabel2, gridBagConstraints);
+        formPanel.add(jLabel2, new java.awt.GridBagConstraints());
 
         jLabel3.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -95,13 +101,13 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         formPanel.add(triples, gridBagConstraints);
 
-        tirosCampoTotales.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        tirosCampoTotales.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        tirosCampoTotales.setPreferredSize(new java.awt.Dimension(93, 25));
+        tirosLibresTotales.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        tirosLibresTotales.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        tirosLibresTotales.setPreferredSize(new java.awt.Dimension(93, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        formPanel.add(tirosCampoTotales, gridBagConstraints);
+        gridBagConstraints.gridy = 10;
+        formPanel.add(tirosLibresTotales, gridBagConstraints);
 
         dobles.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
         dobles.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
@@ -111,7 +117,40 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints.gridy = 6;
         formPanel.add(dobles, gridBagConstraints);
 
-        add(formPanel, java.awt.BorderLayout.WEST);
+        jlabel6.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jlabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlabel6.setText("Tiros de campo totales");
+        jlabel6.setPreferredSize(new java.awt.Dimension(170, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        formPanel.add(jlabel6, gridBagConstraints);
+
+        tirosCampoTotales.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        tirosCampoTotales.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        tirosCampoTotales.setPreferredSize(new java.awt.Dimension(93, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        formPanel.add(tirosCampoTotales, gridBagConstraints);
+
+        jLabel5.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Libres");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        formPanel.add(jLabel5, gridBagConstraints);
+
+        libres.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        libres.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        libres.setPreferredSize(new java.awt.Dimension(65, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        formPanel.add(libres, gridBagConstraints);
+
+        add(formPanel, java.awt.BorderLayout.CENTER);
 
         logoPanel.setBackground(new java.awt.Color(153, 153, 153));
         logoPanel.setPreferredSize(new java.awt.Dimension(400, 500));
@@ -160,11 +199,11 @@ public class Window extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 342, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 442, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -178,21 +217,29 @@ public class Window extends javax.swing.JPanel {
 
     private void addInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addInfoActionPerformed
         // TODO add your handling code here:
-        if(fieldEmpty(dobles) || fieldEmpty(triples) || fieldEmpty(tirosCampoAcertados) || fieldEmpty(tirosCampoTotales)) {
+        if(fieldEmpty(dobles) || fieldEmpty(triples) || fieldEmpty(tirosCampoAcertados) || fieldEmpty(tirosLibresTotales) || fieldEmpty(tirosCampoTotales) || fieldEmpty(libres)) {
             informador.setText("Faltan campos por completar");
             informador.setForeground(Color.red);
         } else {
             int tca = Integer.parseInt(tirosCampoAcertados.getText());
             int tct = Integer.parseInt(tirosCampoTotales.getText());
+            int tli = Integer.parseInt(tirosLibresTotales.getText());
             int t = Integer.parseInt(triples.getText());
             int d = Integer.parseInt(dobles.getText());
-            porcentajes.creararchivo(tca, tct, t, d);
+            int l = Integer.parseInt(libres.getText());
+            
+            porcentajes.creararchivo(tca, tct, tli, t, d, l);
             informador.setText("Accion Completada");
             informador.setForeground(Color.green);
         }
         
     }//GEN-LAST:event_addInfoActionPerformed
+
+    private void tirosCampoAcertadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tirosCampoAcertadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tirosCampoAcertadosActionPerformed
     
+
     private boolean fieldEmpty(javax.swing.JTextField tf){
         String text = tf.getText();
         if(text == null) {
@@ -210,11 +257,15 @@ public class Window extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlabel5;
+    private javax.swing.JLabel jlabel6;
+    private javax.swing.JTextField libres;
     private javax.swing.JPanel logoPanel;
     private javax.swing.JTextField tirosCampoAcertados;
     private javax.swing.JTextField tirosCampoTotales;
+    private javax.swing.JTextField tirosLibresTotales;
     private javax.swing.JTextField triples;
     // End of variables declaration//GEN-END:variables
 }

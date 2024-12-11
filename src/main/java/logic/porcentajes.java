@@ -19,7 +19,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class porcentajes {
 
-    public static void creararchivo(int tca, int tci, int t, int d) {
+    public static void creararchivo(int tca, int tci,int tli, int t, int d, int l) {
         String nombreArchivo = "datosNBA.xlsx";
         String nombreHoja = "Partidos";
 
@@ -43,6 +43,8 @@ public class porcentajes {
                 celda.setCellValue("% de tiros anotados");
                 celda = fila.createCell(5, CellType.STRING);
                 celda.setCellValue("% efectivo de tiros anotados");
+                celda = fila.createCell(6, CellType.STRING);
+                celda.setCellValue("% efectivo de tiros real");
             }
 
             int filaNumero = hoja.getPhysicalNumberOfRows();
@@ -56,7 +58,7 @@ public class porcentajes {
             celda = fila.createCell(3, CellType.NUMERIC);
             celda.setCellValue(t);
 
-            double[] porcentajes = porcentajesDeTiros(tca, tci, t, d);
+            double[] porcentajes = porcentajesDeTiros(tca, tci, tli, t, d, l);
 
             CellStyle percentageStyle = libroTrabajo.createCellStyle();
             percentageStyle.setDataFormat(libroTrabajo.getCreationHelper().createDataFormat().getFormat("0.0%"));
@@ -66,6 +68,9 @@ public class porcentajes {
             celda.setCellStyle(percentageStyle);
             celda = fila.createCell(5, CellType.NUMERIC);
             celda.setCellValue(porcentajes[1]);
+            celda.setCellStyle(percentageStyle);
+            celda = fila.createCell(6, CellType.NUMERIC);
+            celda.setCellValue(porcentajes[2]);
             celda.setCellStyle(percentageStyle);
 
             try (FileOutputStream archivoSalida = new FileOutputStream(nombreArchivo)) {
@@ -79,12 +84,14 @@ public class porcentajes {
         return new File(nombreArchivo).exists();
     }
 
-    private static double[] porcentajesDeTiros(int tca, int tci, int t, int d) {
-        double[] porcentajes = new double[2];
+    private static double[] porcentajesDeTiros(int tca, int tci, int tli, int t, int d, int l) {
+        double[] porcentajes = new double[3];
 //        Porcentaje de tiros de campo anotados
         porcentajes[0] = (double) tca / tci;
 //        Porcentaje efectivo de tiros de campos anotados
         porcentajes[1] = (tca + (0.5 * t)) / tci;
+//        Porcentaje True Shooting
+        porcentajes[2] = (t*3+d*2+l) / (2 * (tci + (0.44 * tli)));
 
         return porcentajes;
     }
