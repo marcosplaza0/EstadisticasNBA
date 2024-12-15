@@ -5,7 +5,6 @@
 package gui;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import javax.swing.JTextField;
 import logic.porcentajes;
 
@@ -20,36 +19,41 @@ public class Window extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        equipos = new javax.swing.ButtonGroup();
         TabbedPane = new javax.swing.JTabbedPane();
-        panelPositivo = new javax.swing.JPanel();
-        jlabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        triples = new javax.swing.JTextField();
-        tirosLibresTotales = new javax.swing.JTextField();
-        dobles = new javax.swing.JTextField();
-        jlabel6 = new javax.swing.JLabel();
+        panelPuntuaje = new javax.swing.JPanel();
         tirosCampoTotales = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        libres = new javax.swing.JTextField();
-        javax.swing.JLabel jlabel7 = new javax.swing.JLabel();
+        tirosLibresTotales = new javax.swing.JTextField();
         faltasRecibidas = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         rebotes = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        tapones = new javax.swing.JTextField();
+        triples = new javax.swing.JTextField();
+        dobles = new javax.swing.JTextField();
+        libres = new javax.swing.JTextField();
         asistencias = new javax.swing.JTextField();
         robos = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        tapones = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        panelNegativo = new javax.swing.JPanel();
-        jlabel13 = new javax.swing.JLabel();
         faltasCometidas = new javax.swing.JTextField();
-        jlabel14 = new javax.swing.JLabel();
         perdidasBalon = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        panelJugadores = new javax.swing.JPanel();
+        bChicagoBulls = new javax.swing.JRadioButton();
+        bAtlantaHawks = new javax.swing.JRadioButton();
+        cbEquipos = new javax.swing.JComboBox<>();
+        logoEquipos = new javax.swing.JLabel();
         logoPanel = new javax.swing.JPanel();
         informador = new javax.swing.JLabel();
-        Logo = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         addInfo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
@@ -58,21 +62,126 @@ public class Window extends javax.swing.JPanel {
         TabbedPane.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         TabbedPane.setPreferredSize(new java.awt.Dimension(500, 500));
 
-        panelPositivo.setBackground(new java.awt.Color(204, 255, 255));
-        panelPositivo.setPreferredSize(new java.awt.Dimension(500, 500));
+        panelPuntuaje.setBackground(new java.awt.Color(204, 255, 255));
+        panelPuntuaje.setPreferredSize(new java.awt.Dimension(500, 500));
         java.awt.GridBagLayout formPanelLayout = new java.awt.GridBagLayout();
         formPanelLayout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
         formPanelLayout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
-        panelPositivo.setLayout(formPanelLayout);
+        panelPuntuaje.setLayout(formPanelLayout);
 
-        jlabel5.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jlabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlabel5.setText("Tiros libres intentados");
-        jlabel5.setPreferredSize(new java.awt.Dimension(170, 20));
+        tirosCampoTotales.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        tirosCampoTotales.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        tirosCampoTotales.setPreferredSize(new java.awt.Dimension(93, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        panelPuntuaje.add(tirosCampoTotales, gridBagConstraints);
+
+        tirosLibresTotales.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        tirosLibresTotales.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        tirosLibresTotales.setPreferredSize(new java.awt.Dimension(93, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        panelPuntuaje.add(tirosLibresTotales, gridBagConstraints);
+
+        faltasRecibidas.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        faltasRecibidas.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        faltasRecibidas.setPreferredSize(new java.awt.Dimension(93, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        panelPuntuaje.add(faltasRecibidas, gridBagConstraints);
+
+        rebotes.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        rebotes.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        rebotes.setPreferredSize(new java.awt.Dimension(65, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 22;
+        panelPuntuaje.add(rebotes, gridBagConstraints);
+
+        tapones.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        tapones.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        tapones.setPreferredSize(new java.awt.Dimension(65, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 22;
+        panelPuntuaje.add(tapones, gridBagConstraints);
+
+        triples.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        triples.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        triples.setPreferredSize(new java.awt.Dimension(65, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        panelPuntuaje.add(triples, gridBagConstraints);
+
+        dobles.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        dobles.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        dobles.setPreferredSize(new java.awt.Dimension(65, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        panelPuntuaje.add(dobles, gridBagConstraints);
+
+        libres.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        libres.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        libres.setPreferredSize(new java.awt.Dimension(65, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        panelPuntuaje.add(libres, gridBagConstraints);
+
+        asistencias.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        asistencias.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        asistencias.setPreferredSize(new java.awt.Dimension(65, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 14;
+        panelPuntuaje.add(asistencias, gridBagConstraints);
+
+        robos.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        robos.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        robos.setPreferredSize(new java.awt.Dimension(65, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 18;
+        panelPuntuaje.add(robos, gridBagConstraints);
+
+        faltasCometidas.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        faltasCometidas.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        faltasCometidas.setPreferredSize(new java.awt.Dimension(93, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        panelPuntuaje.add(faltasCometidas, gridBagConstraints);
+
+        perdidasBalon.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        perdidasBalon.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        perdidasBalon.setPreferredSize(new java.awt.Dimension(93, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 18;
+        panelPuntuaje.add(perdidasBalon, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Tiros libres intentados");
+        jLabel1.setPreferredSize(new java.awt.Dimension(170, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        panelPositivo.add(jlabel5, gridBagConstraints);
+        panelPuntuaje.add(jLabel1, gridBagConstraints);
+
+        jLabel2.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Tiros de campo totales");
+        jLabel2.setPreferredSize(new java.awt.Dimension(170, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        panelPuntuaje.add(jLabel2, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -81,7 +190,7 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        panelPositivo.add(jLabel3, gridBagConstraints);
+        panelPuntuaje.add(jLabel3, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -89,48 +198,7 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
-        panelPositivo.add(jLabel4, gridBagConstraints);
-
-        triples.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        triples.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        triples.setPreferredSize(new java.awt.Dimension(65, 27));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        panelPositivo.add(triples, gridBagConstraints);
-
-        tirosLibresTotales.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        tirosLibresTotales.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        tirosLibresTotales.setPreferredSize(new java.awt.Dimension(93, 25));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        panelPositivo.add(tirosLibresTotales, gridBagConstraints);
-
-        dobles.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        dobles.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        dobles.setPreferredSize(new java.awt.Dimension(65, 27));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        panelPositivo.add(dobles, gridBagConstraints);
-
-        jlabel6.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jlabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlabel6.setText("Tiros de campo totales");
-        jlabel6.setPreferredSize(new java.awt.Dimension(170, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        panelPositivo.add(jlabel6, gridBagConstraints);
-
-        tirosCampoTotales.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        tirosCampoTotales.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        tirosCampoTotales.setPreferredSize(new java.awt.Dimension(93, 25));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        panelPositivo.add(tirosCampoTotales, gridBagConstraints);
+        panelPuntuaje.add(jLabel4, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -138,48 +206,15 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
-        panelPositivo.add(jLabel5, gridBagConstraints);
-
-        libres.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        libres.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        libres.setPreferredSize(new java.awt.Dimension(65, 27));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
-        panelPositivo.add(libres, gridBagConstraints);
-
-        jlabel7.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jlabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlabel7.setText("Faltas recibidas");
-        jlabel7.setPreferredSize(new java.awt.Dimension(170, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        panelPositivo.add(jlabel7, gridBagConstraints);
-
-        faltasRecibidas.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        faltasRecibidas.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        faltasRecibidas.setPreferredSize(new java.awt.Dimension(93, 25));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        panelPositivo.add(faltasRecibidas, gridBagConstraints);
+        panelPuntuaje.add(jLabel5, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Rebotes");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
-        panelPositivo.add(jLabel6, gridBagConstraints);
-
-        rebotes.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        rebotes.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        rebotes.setPreferredSize(new java.awt.Dimension(65, 27));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
-        panelPositivo.add(rebotes, gridBagConstraints);
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 20;
+        panelPuntuaje.add(jLabel6, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -187,23 +222,7 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 12;
-        panelPositivo.add(jLabel7, gridBagConstraints);
-
-        asistencias.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        asistencias.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        asistencias.setPreferredSize(new java.awt.Dimension(65, 27));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
-        panelPositivo.add(asistencias, gridBagConstraints);
-
-        robos.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        robos.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        robos.setPreferredSize(new java.awt.Dimension(65, 27));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 18;
-        panelPositivo.add(robos, gridBagConstraints);
+        panelPuntuaje.add(jLabel7, gridBagConstraints);
 
         jLabel8.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -211,68 +230,100 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 16;
-        panelPositivo.add(jLabel8, gridBagConstraints);
-
-        tapones.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        tapones.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        tapones.setPreferredSize(new java.awt.Dimension(65, 27));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 18;
-        panelPositivo.add(tapones, gridBagConstraints);
+        panelPuntuaje.add(jLabel8, gridBagConstraints);
 
         jLabel9.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Tapones");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
-        panelPositivo.add(jLabel9, gridBagConstraints);
+        gridBagConstraints.gridy = 20;
+        panelPuntuaje.add(jLabel9, gridBagConstraints);
 
-        TabbedPane.addTab("Positivo", panelPositivo);
-
-        panelNegativo.setBackground(new java.awt.Color(204, 255, 255));
-        panelNegativo.setPreferredSize(new java.awt.Dimension(500, 500));
-        java.awt.GridBagLayout formPanel1Layout = new java.awt.GridBagLayout();
-        formPanel1Layout.columnWidths = new int[] {0};
-        formPanel1Layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0};
-        panelNegativo.setLayout(formPanel1Layout);
-
-        jlabel13.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jlabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlabel13.setText("Faltas cometidas");
-        jlabel13.setPreferredSize(new java.awt.Dimension(170, 20));
+        jLabel10.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Faltas recibidas");
+        jLabel10.setPreferredSize(new java.awt.Dimension(170, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        panelNegativo.add(jlabel13, gridBagConstraints);
+        gridBagConstraints.gridy = 8;
+        panelPuntuaje.add(jLabel10, gridBagConstraints);
 
-        faltasCometidas.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        faltasCometidas.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        faltasCometidas.setPreferredSize(new java.awt.Dimension(93, 25));
+        jLabel11.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Faltas cometidas");
+        jLabel11.setPreferredSize(new java.awt.Dimension(170, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        panelPuntuaje.add(jLabel11, gridBagConstraints);
+
+        jLabel12.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Perdidas de balon");
+        jLabel12.setPreferredSize(new java.awt.Dimension(170, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 16;
+        panelPuntuaje.add(jLabel12, gridBagConstraints);
+
+        TabbedPane.addTab("Puntuaje", panelPuntuaje);
+
+        panelJugadores.setBackground(new java.awt.Color(204, 255, 255));
+        panelJugadores.setPreferredSize(new java.awt.Dimension(500, 500));
+        java.awt.GridBagLayout formPanel1Layout = new java.awt.GridBagLayout();
+        formPanel1Layout.columnWidths = new int[] {0, 10, 0};
+        formPanel1Layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
+        panelJugadores.setLayout(formPanel1Layout);
+
+        equipos.add(bChicagoBulls);
+        bChicagoBulls.setSelected(true);
+        bChicagoBulls.setText("Chicago Bulls");
+        bChicagoBulls.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bChicagoBullsActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        panelNegativo.add(faltasCometidas, gridBagConstraints);
+        gridBagConstraints.ipadx = 8;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 14);
+        panelJugadores.add(bChicagoBulls, gridBagConstraints);
 
-        jlabel14.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jlabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlabel14.setText("Perdidas de balon");
-        jlabel14.setPreferredSize(new java.awt.Dimension(170, 20));
+        equipos.add(bAtlantaHawks);
+        bAtlantaHawks.setText("Atlanta Hawks");
+        bAtlantaHawks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAtlantaHawksActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 8;
+        gridBagConstraints.insets = new java.awt.Insets(0, 14, 0, 0);
+        panelJugadores.add(bAtlantaHawks, gridBagConstraints);
+
+        cbEquipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jalen  Smith", "Adama Sanogo", "Patrick Williams", "Josh Giddey", "Jevon Carter" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        panelNegativo.add(jlabel14, gridBagConstraints);
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.ipadx = 42;
+        gridBagConstraints.ipady = 6;
+        panelJugadores.add(cbEquipos, gridBagConstraints);
 
-        perdidasBalon.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        perdidasBalon.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        perdidasBalon.setPreferredSize(new java.awt.Dimension(93, 25));
+        logoEquipos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chicagoBulls.png"))); // NOI18N
+        logoEquipos.setPreferredSize(new java.awt.Dimension(250, 250));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        panelNegativo.add(perdidasBalon, gridBagConstraints);
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        panelJugadores.add(logoEquipos, gridBagConstraints);
 
-        TabbedPane.addTab("Negativo", panelNegativo);
+        TabbedPane.addTab("Jugador", panelJugadores);
 
         add(TabbedPane, java.awt.BorderLayout.WEST);
 
@@ -289,13 +340,13 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(100, 0, 0, 0);
         logoPanel.add(informador, gridBagConstraints);
 
-        Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
-        Logo.setBorder(javax.swing.BorderFactory.createEmptyBorder(60, 1, 30, 1));
+        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
+        logo.setBorder(javax.swing.BorderFactory.createEmptyBorder(60, 1, 30, 1));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 0;
         gridBagConstraints.weighty = 0.2;
-        logoPanel.add(Logo, gridBagConstraints);
+        logoPanel.add(logo, gridBagConstraints);
 
         addInfo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         addInfo.setText("Añadir información");
@@ -358,14 +409,27 @@ public class Window extends javax.swing.JPanel {
             int pb = Integer.parseInt(perdidasBalon.getText());
             int fc = Integer.parseInt(faltasCometidas.getText());
             int tca = t + d;
+            boolean equipo = bChicagoBulls.isSelected();
+            String jugador = cbEquipos.getSelectedItem().toString();
             
-            
-            porcentajes.excel(tca, tct, tli, t, d, l, re, asis, ro, ta, fr, pb, fc);
+            porcentajes.excel(equipo, jugador, tca, tct, tli, t, d, l, re, asis, ro, ta, fr, pb, fc);
             informador.setText("Accion Completada");
             informador.setForeground(Color.green);
         }
         
     }//GEN-LAST:event_addInfoActionPerformed
+
+    private void bChicagoBullsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bChicagoBullsActionPerformed
+        // TODO add your handling code here:
+        logoEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chicagoBulls.png")));
+        cbEquipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jalen  Smith", "Adama Sanogo", "Patrick Williams", "Josh Giddey", "Jevon Carter" }));
+    }//GEN-LAST:event_bChicagoBullsActionPerformed
+
+    private void bAtlantaHawksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtlantaHawksActionPerformed
+        // TODO add your handling code here:
+        logoEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/atlantaHawks.png")));
+        cbEquipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trae Young", "David Roddy", "Kobe Bufkin", "Dominick Barlow", "Cody Zeller" }));
+    }//GEN-LAST:event_bAtlantaHawksActionPerformed
     
     private boolean fieldEmpty(JTextField dato){
         String text = dato.getText();
@@ -373,14 +437,21 @@ public class Window extends javax.swing.JPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Logo;
     private javax.swing.JTabbedPane TabbedPane;
     private javax.swing.JButton addInfo;
     private javax.swing.JTextField asistencias;
+    private javax.swing.JRadioButton bAtlantaHawks;
+    private javax.swing.JRadioButton bChicagoBulls;
+    private javax.swing.JComboBox<String> cbEquipos;
     private javax.swing.JTextField dobles;
+    private javax.swing.ButtonGroup equipos;
     private javax.swing.JTextField faltasCometidas;
     private javax.swing.JTextField faltasRecibidas;
     private javax.swing.JLabel informador;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -389,14 +460,12 @@ public class Window extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel jlabel13;
-    private javax.swing.JLabel jlabel14;
-    private javax.swing.JLabel jlabel5;
-    private javax.swing.JLabel jlabel6;
     private javax.swing.JTextField libres;
+    private javax.swing.JLabel logo;
+    private javax.swing.JLabel logoEquipos;
     private javax.swing.JPanel logoPanel;
-    private javax.swing.JPanel panelNegativo;
-    private javax.swing.JPanel panelPositivo;
+    private javax.swing.JPanel panelJugadores;
+    private javax.swing.JPanel panelPuntuaje;
     private javax.swing.JTextField perdidasBalon;
     private javax.swing.JTextField rebotes;
     private javax.swing.JTextField robos;

@@ -19,9 +19,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class porcentajes {
 
-    public static void excel(int tCampoAcertados, int tCampoIntentados,int tLibresIntentados, int triples, int dobles, int libres, int rebotes, int asistencias, int robos, int tapones, int fRecibidas, int pBalon, int fCometidas) {
-        String nombreArchivo = "datosNBA.xlsx";
-        String nombreHoja = "Partidos";
+    public static void excel(boolean equipo, String jugador, int tCampoAcertados, int tCampoIntentados,int tLibresIntentados, int triples, int dobles, int libres, int rebotes, int asistencias, int robos, int tapones, int fRecibidas, int pBalon, int fCometidas) {
+        String nombreArchivo;
+        String nombreHoja = jugador;
+        if(equipo) {
+            nombreArchivo = "ChicagoBulls.xlsx";
+        } else {
+            nombreArchivo = "AtlantaHawks.xlsx";
+        }
 
         // Verificar si el archivo ya existe
         boolean archivoExistente = verificarArchivoExistente(nombreArchivo);
@@ -69,13 +74,87 @@ public class porcentajes {
             int valoracion = cValoracion(puntos, rebotes, asistencias, robos, tapones, fRecibidas, tFallados, pBalon, fCometidas);
             celda = fila.createCell(7, CellType.NUMERIC);
             celda.setCellValue(valoracion);
+            
+
 
             try (FileOutputStream archivoSalida = new FileOutputStream(nombreArchivo)) {
                 libroTrabajo.write(archivoSalida);
-                System.out.println("Datos agregados al archivo Excel correctamente.");
+                System.out.println("Datos agregados al archivo de puntaciones Excel correctamente.");
+            }
+        } catch (IOException e) { e.getMessage();}
+        
+        valoraciones(equipo, jugador);
+        
+    }
+    
+    private static void valoraciones(boolean equipo, String jugador) {
+        String nombreArchivo = "valoraciones.xlsx";
+        String nombreHoja = "hoja1";
+
+        // Verificar si el archivo ya existe
+        boolean archivoExistente = verificarArchivoExistente(nombreArchivo);
+        try (Workbook libroTrabajo = archivoExistente ? WorkbookFactory.create(Files.newInputStream(Paths.get(nombreArchivo))) : new XSSFWorkbook()) {
+            Sheet hoja = libroTrabajo.getSheet(nombreHoja);
+
+            if (hoja == null) {
+                hoja = libroTrabajo.createSheet(nombreHoja);
+                Row fila = hoja.createRow(0);
+                fila.createCell(0, CellType.STRING).setCellValue("Jugador");
+                fila.createCell(1, CellType.STRING).setCellValue("Valoracion");
+            }
+            
+            double media = mediaJugador(equipo, jugador);
+            
+            int filaNumero = hoja.getPhysicalNumberOfRows();
+            for(int i = 0; i< filaNumero; i++) {
+                Row filab = hoja.getRow(i);
+                if(filab.getCell(0).getStringCellValue().equals(jugador)) {
+                    filab.createCell(0, CellType.NUMERIC).setCellValue(jugador);
+                    filab.createCell(1, CellType.NUMERIC).setCellValue(media);
+                } else if (i == filaNumero-1) {
+                    filab = hoja.createRow(i+1);
+                    filab.createCell(0, CellType.NUMERIC).setCellValue(jugador);
+                    filab.createCell(1, CellType.NUMERIC).setCellValue(media);
+                }
+            }
+ 
+            try (FileOutputStream archivoSalida = new FileOutputStream(nombreArchivo)) {
+                libroTrabajo.write(archivoSalida);
+                System.out.println("Datos agregados al archivo Excel valoraciones correctamente.");
             }
         } catch (IOException e) { e.getMessage();}
     }
+    
+    private static double mediaJugador(boolean equipo, String jugador) {
+        double media = 0;
+        String nombreArchivo;
+        String nombreHoja = jugador;
+        int contador = 0;
+        if(equipo) {
+            nombreArchivo = "ChicagoBulls.xlsx";
+        } else {
+            nombreArchivo = "AtlantaHawks.xlsx";
+        }
+        
+        boolean archivoExistente = verificarArchivoExistente(nombreArchivo);
+        try (Workbook libroTrabajo = archivoExistente ? WorkbookFactory.create(Files.newInputStream(Paths.get(nombreArchivo))) : new XSSFWorkbook()) {
+            Sheet hoja = libroTrabajo.getSheet(nombreHoja);
+            
+            
+            int filaNumero = hoja.getPhysicalNumberOfRows();
+            for(int i = 1; i< filaNumero; i++) {
+                Row fila = hoja.getRow(i);
+                contador += Double.parseDouble(fila.getCell(7).toString());
+            }
+            
+            media = (double) contador / (filaNumero-1);
+ 
+        } catch (IOException e) { e.getMessage();}
+        
+        return media;
+    }
+        
+        
 
     private static boolean verificarArchivoExistente(String nombreArchivo) {
         return new File(nombreArchivo).exists();

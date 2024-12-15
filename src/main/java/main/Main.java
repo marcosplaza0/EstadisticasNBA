@@ -29,7 +29,6 @@ public class Main extends javax.swing.JFrame {
         window1 = new gui.Window();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(900, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(window1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 

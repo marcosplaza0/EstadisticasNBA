@@ -36,6 +36,10 @@ __Las dependencias hay que añadirlas al archivo pom.xml__
 ## Versión 2.0: 
   Calcula también la valoración para lo que tendremos que añadir los datos necesarios. Como sugerencia, se recomienda el uso de tabbed panes, con el fin de agrupar datos.
 
+## Versión 3.0: 
+  Cambia el programa para que se puedan añadir las estadísticas para cinco jugadores diferente de dos equipos diferentes. 
+  Para esto se recomienda listas desplegables dinámicas o menús dinámicos. Tiene que haber un archivo por cada equipo y una hoja por cada jugador. 
+  También tiene que haber una hoja final con las medias de todos los jugadores.
 
 ## Muchas gracias por tomar el tiempo de leer esto 🎁
 -    Comenta a otros sobre este proyecto 📢
