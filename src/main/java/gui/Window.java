@@ -5,23 +5,24 @@
 package gui;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JTextField;
 import logic.porcentajes;
 
 public class Window extends javax.swing.JPanel {
-
+    
     public Window() {
         initComponents();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        formPanel = new javax.swing.JPanel();
+        TabbedPane = new javax.swing.JTabbedPane();
+        panelPositivo = new javax.swing.JPanel();
         jlabel5 = new javax.swing.JLabel();
-        tirosCampoAcertados = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         triples = new javax.swing.JTextField();
@@ -31,6 +32,21 @@ public class Window extends javax.swing.JPanel {
         tirosCampoTotales = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         libres = new javax.swing.JTextField();
+        javax.swing.JLabel jlabel7 = new javax.swing.JLabel();
+        faltasRecibidas = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        rebotes = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        asistencias = new javax.swing.JTextField();
+        robos = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        tapones = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        panelNegativo = new javax.swing.JPanel();
+        jlabel13 = new javax.swing.JLabel();
+        faltasCometidas = new javax.swing.JTextField();
+        jlabel14 = new javax.swing.JLabel();
+        perdidasBalon = new javax.swing.JTextField();
         logoPanel = new javax.swing.JPanel();
         informador = new javax.swing.JLabel();
         Logo = new javax.swing.JLabel();
@@ -39,12 +55,15 @@ public class Window extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        formPanel.setBackground(new java.awt.Color(204, 255, 255));
-        formPanel.setPreferredSize(new java.awt.Dimension(500, 500));
+        TabbedPane.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        TabbedPane.setPreferredSize(new java.awt.Dimension(500, 500));
+
+        panelPositivo.setBackground(new java.awt.Color(204, 255, 255));
+        panelPositivo.setPreferredSize(new java.awt.Dimension(500, 500));
         java.awt.GridBagLayout formPanelLayout = new java.awt.GridBagLayout();
-        formPanelLayout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
-        formPanelLayout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
-        formPanel.setLayout(formPanelLayout);
+        formPanelLayout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
+        formPanelLayout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
+        panelPositivo.setLayout(formPanelLayout);
 
         jlabel5.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jlabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -52,29 +71,8 @@ public class Window extends javax.swing.JPanel {
         jlabel5.setPreferredSize(new java.awt.Dimension(170, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        formPanel.add(jlabel5, gridBagConstraints);
-
-        tirosCampoAcertados.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
-        tirosCampoAcertados.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        tirosCampoAcertados.setPreferredSize(new java.awt.Dimension(93, 25));
-        tirosCampoAcertados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tirosCampoAcertadosActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        formPanel.add(tirosCampoAcertados, gridBagConstraints);
-
-        jLabel2.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Tiros de campo acertados");
-        jLabel2.setToolTipText("");
-        jLabel2.setMaximumSize(new java.awt.Dimension(200, 19));
-        jLabel2.setPreferredSize(new java.awt.Dimension(200, 20));
-        formPanel.add(jLabel2, new java.awt.GridBagConstraints());
+        gridBagConstraints.gridy = 4;
+        panelPositivo.add(jlabel5, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -83,7 +81,7 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        formPanel.add(jLabel3, gridBagConstraints);
+        panelPositivo.add(jLabel3, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -91,7 +89,7 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
-        formPanel.add(jLabel4, gridBagConstraints);
+        panelPositivo.add(jLabel4, gridBagConstraints);
 
         triples.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
         triples.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
@@ -99,15 +97,15 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        formPanel.add(triples, gridBagConstraints);
+        panelPositivo.add(triples, gridBagConstraints);
 
         tirosLibresTotales.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
         tirosLibresTotales.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
         tirosLibresTotales.setPreferredSize(new java.awt.Dimension(93, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        formPanel.add(tirosLibresTotales, gridBagConstraints);
+        gridBagConstraints.gridy = 6;
+        panelPositivo.add(tirosLibresTotales, gridBagConstraints);
 
         dobles.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
         dobles.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
@@ -115,7 +113,7 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
-        formPanel.add(dobles, gridBagConstraints);
+        panelPositivo.add(dobles, gridBagConstraints);
 
         jlabel6.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jlabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -123,16 +121,16 @@ public class Window extends javax.swing.JPanel {
         jlabel6.setPreferredSize(new java.awt.Dimension(170, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        formPanel.add(jlabel6, gridBagConstraints);
+        gridBagConstraints.gridy = 0;
+        panelPositivo.add(jlabel6, gridBagConstraints);
 
         tirosCampoTotales.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
         tirosCampoTotales.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
         tirosCampoTotales.setPreferredSize(new java.awt.Dimension(93, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        formPanel.add(tirosCampoTotales, gridBagConstraints);
+        gridBagConstraints.gridy = 2;
+        panelPositivo.add(tirosCampoTotales, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -140,7 +138,7 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
-        formPanel.add(jLabel5, gridBagConstraints);
+        panelPositivo.add(jLabel5, gridBagConstraints);
 
         libres.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
         libres.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
@@ -148,9 +146,135 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
-        formPanel.add(libres, gridBagConstraints);
+        panelPositivo.add(libres, gridBagConstraints);
 
-        add(formPanel, java.awt.BorderLayout.CENTER);
+        jlabel7.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jlabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlabel7.setText("Faltas recibidas");
+        jlabel7.setPreferredSize(new java.awt.Dimension(170, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        panelPositivo.add(jlabel7, gridBagConstraints);
+
+        faltasRecibidas.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        faltasRecibidas.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        faltasRecibidas.setPreferredSize(new java.awt.Dimension(93, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        panelPositivo.add(faltasRecibidas, gridBagConstraints);
+
+        jLabel6.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Rebotes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        panelPositivo.add(jLabel6, gridBagConstraints);
+
+        rebotes.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        rebotes.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        rebotes.setPreferredSize(new java.awt.Dimension(65, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        panelPositivo.add(rebotes, gridBagConstraints);
+
+        jLabel7.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Asistencias");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
+        panelPositivo.add(jLabel7, gridBagConstraints);
+
+        asistencias.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        asistencias.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        asistencias.setPreferredSize(new java.awt.Dimension(65, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 14;
+        panelPositivo.add(asistencias, gridBagConstraints);
+
+        robos.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        robos.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        robos.setPreferredSize(new java.awt.Dimension(65, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 18;
+        panelPositivo.add(robos, gridBagConstraints);
+
+        jLabel8.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Robos");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 16;
+        panelPositivo.add(jLabel8, gridBagConstraints);
+
+        tapones.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        tapones.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        tapones.setPreferredSize(new java.awt.Dimension(65, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 18;
+        panelPositivo.add(tapones, gridBagConstraints);
+
+        jLabel9.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Tapones");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 16;
+        panelPositivo.add(jLabel9, gridBagConstraints);
+
+        TabbedPane.addTab("Positivo", panelPositivo);
+
+        panelNegativo.setBackground(new java.awt.Color(204, 255, 255));
+        panelNegativo.setPreferredSize(new java.awt.Dimension(500, 500));
+        java.awt.GridBagLayout formPanel1Layout = new java.awt.GridBagLayout();
+        formPanel1Layout.columnWidths = new int[] {0};
+        formPanel1Layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0};
+        panelNegativo.setLayout(formPanel1Layout);
+
+        jlabel13.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jlabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlabel13.setText("Faltas cometidas");
+        jlabel13.setPreferredSize(new java.awt.Dimension(170, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        panelNegativo.add(jlabel13, gridBagConstraints);
+
+        faltasCometidas.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        faltasCometidas.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        faltasCometidas.setPreferredSize(new java.awt.Dimension(93, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        panelNegativo.add(faltasCometidas, gridBagConstraints);
+
+        jlabel14.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jlabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlabel14.setText("Perdidas de balon");
+        jlabel14.setPreferredSize(new java.awt.Dimension(170, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        panelNegativo.add(jlabel14, gridBagConstraints);
+
+        perdidasBalon.setFont(new java.awt.Font("Cantarell", 2, 15)); // NOI18N
+        perdidasBalon.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        perdidasBalon.setPreferredSize(new java.awt.Dimension(93, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        panelNegativo.add(perdidasBalon, gridBagConstraints);
+
+        TabbedPane.addTab("Negativo", panelNegativo);
+
+        add(TabbedPane, java.awt.BorderLayout.WEST);
 
         logoPanel.setBackground(new java.awt.Color(153, 153, 153));
         logoPanel.setPreferredSize(new java.awt.Dimension(400, 500));
@@ -199,11 +323,11 @@ public class Window extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 342, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -217,53 +341,66 @@ public class Window extends javax.swing.JPanel {
 
     private void addInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addInfoActionPerformed
         // TODO add your handling code here:
-        if(fieldEmpty(dobles) || fieldEmpty(triples) || fieldEmpty(tirosCampoAcertados) || fieldEmpty(tirosLibresTotales) || fieldEmpty(tirosCampoTotales) || fieldEmpty(libres)) {
+        if(fieldEmpty(tirosCampoTotales) || fieldEmpty(tirosLibresTotales) || fieldEmpty(triples) || fieldEmpty(dobles) || fieldEmpty(libres) || fieldEmpty(rebotes) || fieldEmpty(asistencias) || fieldEmpty(robos) || fieldEmpty(tapones) || fieldEmpty(faltasRecibidas) || fieldEmpty(perdidasBalon) || fieldEmpty(faltasCometidas)) {
             informador.setText("Faltan campos por completar");
             informador.setForeground(Color.red);
         } else {
-            int tca = Integer.parseInt(tirosCampoAcertados.getText());
             int tct = Integer.parseInt(tirosCampoTotales.getText());
             int tli = Integer.parseInt(tirosLibresTotales.getText());
             int t = Integer.parseInt(triples.getText());
             int d = Integer.parseInt(dobles.getText());
             int l = Integer.parseInt(libres.getText());
+            int re = Integer.parseInt(rebotes.getText());
+            int asis = Integer.parseInt(asistencias.getText());
+            int ro = Integer.parseInt(robos.getText());
+            int ta = Integer.parseInt(tapones.getText());
+            int fr = Integer.parseInt(faltasRecibidas.getText());
+            int pb = Integer.parseInt(perdidasBalon.getText());
+            int fc = Integer.parseInt(faltasCometidas.getText());
+            int tca = t + d;
             
-            porcentajes.creararchivo(tca, tct, tli, t, d, l);
+            
+            porcentajes.excel(tca, tct, tli, t, d, l, re, asis, ro, ta, fr, pb, fc);
             informador.setText("Accion Completada");
             informador.setForeground(Color.green);
         }
         
     }//GEN-LAST:event_addInfoActionPerformed
-
-    private void tirosCampoAcertadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tirosCampoAcertadosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tirosCampoAcertadosActionPerformed
     
-
-    private boolean fieldEmpty(javax.swing.JTextField tf){
-        String text = tf.getText();
-        if(text == null) {
-            return false;
-        }
-        return text.isEmpty();
+    private boolean fieldEmpty(JTextField dato){
+        String text = dato.getText();
+        return text == null || text.isEmpty();
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
+    private javax.swing.JTabbedPane TabbedPane;
     private javax.swing.JButton addInfo;
+    private javax.swing.JTextField asistencias;
     private javax.swing.JTextField dobles;
-    private javax.swing.JPanel formPanel;
+    private javax.swing.JTextField faltasCometidas;
+    private javax.swing.JTextField faltasRecibidas;
     private javax.swing.JLabel informador;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jlabel13;
+    private javax.swing.JLabel jlabel14;
     private javax.swing.JLabel jlabel5;
     private javax.swing.JLabel jlabel6;
     private javax.swing.JTextField libres;
     private javax.swing.JPanel logoPanel;
-    private javax.swing.JTextField tirosCampoAcertados;
+    private javax.swing.JPanel panelNegativo;
+    private javax.swing.JPanel panelPositivo;
+    private javax.swing.JTextField perdidasBalon;
+    private javax.swing.JTextField rebotes;
+    private javax.swing.JTextField robos;
+    private javax.swing.JTextField tapones;
     private javax.swing.JTextField tirosCampoTotales;
     private javax.swing.JTextField tirosLibresTotales;
     private javax.swing.JTextField triples;

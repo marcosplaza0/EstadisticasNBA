@@ -19,7 +19,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class porcentajes {
 
-    public static void creararchivo(int tca, int tci,int tli, int t, int d, int l) {
+    public static void excel(int tCampoAcertados, int tCampoIntentados,int tLibresIntentados, int triples, int dobles, int libres, int rebotes, int asistencias, int robos, int tapones, int fRecibidas, int pBalon, int fCometidas) {
         String nombreArchivo = "datosNBA.xlsx";
         String nombreHoja = "Partidos";
 
@@ -31,47 +31,44 @@ public class porcentajes {
             if (hoja == null) {
                 hoja = libroTrabajo.createSheet(nombreHoja);
                 Row fila = hoja.createRow(0);
-                Cell celda = fila.createCell(0, CellType.STRING);
-                celda.setCellValue("Tiros de campo totales");
-                celda = fila.createCell(1, CellType.STRING);
-                celda.setCellValue("Tiros de campo anotados");
-                celda = fila.createCell(2, CellType.STRING);
-                celda.setCellValue("Dobles");
-                celda = fila.createCell(3, CellType.STRING);
-                celda.setCellValue("Triples");
-                celda = fila.createCell(4, CellType.STRING);
-                celda.setCellValue("% de tiros anotados");
-                celda = fila.createCell(5, CellType.STRING);
-                celda.setCellValue("% efectivo de tiros anotados");
-                celda = fila.createCell(6, CellType.STRING);
-                celda.setCellValue("% efectivo de tiros real");
+                fila.createCell(0, CellType.STRING).setCellValue("Tiros de campo totales");
+                fila.createCell(1, CellType.STRING).setCellValue("Tiros de campo anotados");
+                fila.createCell(2, CellType.STRING).setCellValue("Dobles");
+                fila.createCell(3, CellType.STRING).setCellValue("Triples");
+                fila.createCell(4, CellType.STRING).setCellValue("% de tiros anotados");
+                fila.createCell(5, CellType.STRING).setCellValue("% efectivo de tiros anotados");
+                fila.createCell(6, CellType.STRING).setCellValue("% efectivo de tiros real");
+                fila.createCell(7, CellType.STRING).setCellValue("Valoracion");
             }
 
+//          Valores que no son porcentajes
             int filaNumero = hoja.getPhysicalNumberOfRows();
             Row fila = hoja.createRow(filaNumero);
             Cell celda = fila.createCell(0, CellType.NUMERIC);
-            celda.setCellValue(tci);
+            celda.setCellValue(tCampoIntentados);
             celda = fila.createCell(1, CellType.NUMERIC);
-            celda.setCellValue(tca);
+            celda.setCellValue(tCampoAcertados);
             celda = fila.createCell(2, CellType.NUMERIC);
-            celda.setCellValue(d);
+            celda.setCellValue(dobles);
             celda = fila.createCell(3, CellType.NUMERIC);
-            celda.setCellValue(t);
-
-            double[] porcentajes = porcentajesDeTiros(tca, tci, tli, t, d, l);
-
+            celda.setCellValue(triples);
+            
+//          Valores que son porcentajes
             CellStyle percentageStyle = libroTrabajo.createCellStyle();
             percentageStyle.setDataFormat(libroTrabajo.getCreationHelper().createDataFormat().getFormat("0.0%"));
+            double[] percentages = porcentajesDeTiros(tCampoAcertados, tCampoIntentados, tLibresIntentados, triples, dobles, libres);
 
-            celda = fila.createCell(4, CellType.NUMERIC);
-            celda.setCellValue(porcentajes[0]);
-            celda.setCellStyle(percentageStyle);
-            celda = fila.createCell(5, CellType.NUMERIC);
-            celda.setCellValue(porcentajes[1]);
-            celda.setCellStyle(percentageStyle);
-            celda = fila.createCell(6, CellType.NUMERIC);
-            celda.setCellValue(porcentajes[2]);
-            celda.setCellStyle(percentageStyle);
+            for(int i = 0; i < 3; i++) {
+                celda = fila.createCell(i+4, CellType.NUMERIC);
+                celda.setCellValue(percentages[i]);
+                celda.setCellStyle(percentageStyle);
+            }
+            
+            int puntos = triples * 3 + dobles * 2 + libres;
+            int tFallados = tCampoIntentados - tCampoAcertados;
+            int valoracion = cValoracion(puntos, rebotes, asistencias, robos, tapones, fRecibidas, tFallados, pBalon, fCometidas);
+            celda = fila.createCell(7, CellType.NUMERIC);
+            celda.setCellValue(valoracion);
 
             try (FileOutputStream archivoSalida = new FileOutputStream(nombreArchivo)) {
                 libroTrabajo.write(archivoSalida);
@@ -95,5 +92,9 @@ public class porcentajes {
 
         return porcentajes;
     }
-
+    
+    private static int cValoracion(int puntos, int rebotes, int asistencias, int robos, int tapones, int fRecibidas, int tFallados, int pBalon, int fCometidas) {
+        return (puntos + rebotes + asistencias + robos + tapones + fRecibidas) - (tFallados + pBalon + fCometidas);
+    }
+    
 }

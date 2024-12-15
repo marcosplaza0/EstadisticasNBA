@@ -33,6 +33,9 @@ __Las dependencias hay que añadirlas al archivo pom.xml__
 ## Versión 1.5: 
   También calculará el %TS, para lo que nos harán falta los tiros libres. En la hoja de cálculo generada habrá una última fila en la que pondrá las medias.
 
+## Versión 2.0: 
+  Calcula también la valoración para lo que tendremos que añadir los datos necesarios. Como sugerencia, se recomienda el uso de tabbed panes, con el fin de agrupar datos.
+
 
 ## Muchas gracias por tomar el tiempo de leer esto 🎁
 -    Comenta a otros sobre este proyecto 📢
