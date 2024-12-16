@@ -41,6 +41,10 @@ __Las dependencias hay que añadirlas al archivo pom.xml__
   Para esto se recomienda listas desplegables dinámicas o menús dinámicos. Tiene que haber un archivo por cada equipo y una hoja por cada jugador. 
   También tiene que haber una hoja final con las medias de todos los jugadores.
 
+## Versión 4.0: 
+  Poned un botón que sea  para crear un gráfico de barra con los puntos del jugador seleccionado, siendo cada una de las barras uno de sus partidos. 
+  Dad formato al gráfico y haced que se sobrescriba si se genera varias veces para el mismo jugador.
+
 ## Muchas gracias por tomar el tiempo de leer esto 🎁
 -    Comenta a otros sobre este proyecto 📢
 -    Con ❤️ por [marcosplaza0](https://github.com/marcosplaza0)

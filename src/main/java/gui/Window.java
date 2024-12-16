@@ -6,7 +6,8 @@ package gui;
 
 import java.awt.Color;
 import javax.swing.JTextField;
-import logic.porcentajes;
+import logic.Excel;
+import logic.Graficos;
 
 public class Window extends javax.swing.JPanel {
     
@@ -51,6 +52,7 @@ public class Window extends javax.swing.JPanel {
         bAtlantaHawks = new javax.swing.JRadioButton();
         cbEquipos = new javax.swing.JComboBox<>();
         logoEquipos = new javax.swing.JLabel();
+        buttonGrafico = new javax.swing.JButton();
         logoPanel = new javax.swing.JPanel();
         informador = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
@@ -286,7 +288,7 @@ public class Window extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.ipadx = 8;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 14);
         panelJugadores.add(bChicagoBulls, gridBagConstraints);
@@ -300,7 +302,7 @@ public class Window extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.ipadx = 8;
         gridBagConstraints.insets = new java.awt.Insets(0, 14, 0, 0);
         panelJugadores.add(bAtlantaHawks, gridBagConstraints);
@@ -308,7 +310,7 @@ public class Window extends javax.swing.JPanel {
         cbEquipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jalen  Smith", "Adama Sanogo", "Patrick Williams", "Josh Giddey", "Jevon Carter" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.ipadx = 42;
         gridBagConstraints.ipady = 6;
@@ -322,6 +324,18 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         panelJugadores.add(logoEquipos, gridBagConstraints);
+
+        buttonGrafico.setText("Sacar Grafico");
+        buttonGrafico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGraficoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        panelJugadores.add(buttonGrafico, gridBagConstraints);
 
         TabbedPane.addTab("Jugador", panelJugadores);
 
@@ -412,7 +426,7 @@ public class Window extends javax.swing.JPanel {
             boolean equipo = bChicagoBulls.isSelected();
             String jugador = cbEquipos.getSelectedItem().toString();
             
-            porcentajes.excel(equipo, jugador, tca, tct, tli, t, d, l, re, asis, ro, ta, fr, pb, fc);
+            Excel.excel(equipo, jugador, tca, tct, tli, t, d, l, re, asis, ro, ta, fr, pb, fc);
             informador.setText("Accion Completada");
             informador.setForeground(Color.green);
         }
@@ -430,6 +444,16 @@ public class Window extends javax.swing.JPanel {
         logoEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/atlantaHawks.png")));
         cbEquipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trae Young", "David Roddy", "Kobe Bufkin", "Dominick Barlow", "Cody Zeller" }));
     }//GEN-LAST:event_bAtlantaHawksActionPerformed
+
+    private void buttonGraficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGraficoActionPerformed
+        // TODO add your handling code here:
+        boolean equipo = bChicagoBulls.isSelected();
+        String jugador = cbEquipos.getSelectedItem().toString();
+        Graficos.grafico(equipo, jugador);
+        informador.setText("Grafico creado");
+        informador.setForeground(Color.green);
+        
+    }//GEN-LAST:event_buttonGraficoActionPerformed
     
     private boolean fieldEmpty(JTextField dato){
         String text = dato.getText();
@@ -442,6 +466,7 @@ public class Window extends javax.swing.JPanel {
     private javax.swing.JTextField asistencias;
     private javax.swing.JRadioButton bAtlantaHawks;
     private javax.swing.JRadioButton bChicagoBulls;
+    private javax.swing.JButton buttonGrafico;
     private javax.swing.JComboBox<String> cbEquipos;
     private javax.swing.JTextField dobles;
     private javax.swing.ButtonGroup equipos;

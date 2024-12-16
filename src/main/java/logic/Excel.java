@@ -17,7 +17,7 @@ import java.nio.file.Paths;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class porcentajes {
+public class Excel {
 
     public static void excel(boolean equipo, String jugador, int tCampoAcertados, int tCampoIntentados,int tLibresIntentados, int triples, int dobles, int libres, int rebotes, int asistencias, int robos, int tapones, int fRecibidas, int pBalon, int fCometidas) {
         String nombreArchivo;
@@ -43,10 +43,15 @@ public class porcentajes {
                 fila.createCell(4, CellType.STRING).setCellValue("% de tiros anotados");
                 fila.createCell(5, CellType.STRING).setCellValue("% efectivo de tiros anotados");
                 fila.createCell(6, CellType.STRING).setCellValue("% efectivo de tiros real");
-                fila.createCell(7, CellType.STRING).setCellValue("Valoracion");
+                fila.createCell(7, CellType.STRING).setCellValue("Asistencias");
+                fila.createCell(8, CellType.STRING).setCellValue("Rebotes");
+                fila.createCell(9, CellType.STRING).setCellValue("Libres");
+                fila.createCell(10, CellType.STRING).setCellValue("Robos");
+                fila.createCell(11, CellType.STRING).setCellValue("Puntos");
+                fila.createCell(12, CellType.STRING).setCellValue("Valoracion");
             }
 
-//          Valores que no son porcentajes
+//          Valores que no son Excel
             int filaNumero = hoja.getPhysicalNumberOfRows();
             Row fila = hoja.createRow(filaNumero);
             Cell celda = fila.createCell(0, CellType.NUMERIC);
@@ -58,7 +63,7 @@ public class porcentajes {
             celda = fila.createCell(3, CellType.NUMERIC);
             celda.setCellValue(triples);
             
-//          Valores que son porcentajes
+//          Valores que son Excel
             CellStyle percentageStyle = libroTrabajo.createCellStyle();
             percentageStyle.setDataFormat(libroTrabajo.getCreationHelper().createDataFormat().getFormat("0.0%"));
             double[] percentages = porcentajesDeTiros(tCampoAcertados, tCampoIntentados, tLibresIntentados, triples, dobles, libres);
@@ -73,6 +78,16 @@ public class porcentajes {
             int tFallados = tCampoIntentados - tCampoAcertados;
             int valoracion = cValoracion(puntos, rebotes, asistencias, robos, tapones, fRecibidas, tFallados, pBalon, fCometidas);
             celda = fila.createCell(7, CellType.NUMERIC);
+            celda.setCellValue(asistencias);
+            celda = fila.createCell(8, CellType.NUMERIC);
+            celda.setCellValue(rebotes);
+            celda = fila.createCell(9, CellType.NUMERIC);
+            celda.setCellValue(libres);
+            celda = fila.createCell(10, CellType.NUMERIC);
+            celda.setCellValue(robos);
+            celda = fila.createCell(11, CellType.NUMERIC);
+            celda.setCellValue(puntos);
+            celda = fila.createCell(12, CellType.NUMERIC);
             celda.setCellValue(valoracion);
             
 
@@ -144,7 +159,7 @@ public class porcentajes {
             int filaNumero = hoja.getPhysicalNumberOfRows();
             for(int i = 1; i< filaNumero; i++) {
                 Row fila = hoja.getRow(i);
-                contador += Double.parseDouble(fila.getCell(7).toString());
+                contador += Double.parseDouble(fila.getCell(12).toString());
             }
             
             media = (double) contador / (filaNumero-1);
