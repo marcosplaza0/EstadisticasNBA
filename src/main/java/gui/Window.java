@@ -491,10 +491,6 @@ public class Window extends javax.swing.JPanel {
             JFrame condicionesFrame = new JFrame("Error");
             condicionesFrame.setSize(1000, 300);
             condicionesFrame.setLayout(new BorderLayout());
-            
-            JPanel panel = new JPanel();
-            panel.setBackground(new Color(135, 206, 235)); // Un azul claro (Sky Blue)
-            condicionesFrame.add(panel, BorderLayout.CENTER);
 
             JLabel textoCondiciones = new JLabel("Los tiros metidos son superiores a los tirados, revisa los datos");
             Font font = new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 24);
