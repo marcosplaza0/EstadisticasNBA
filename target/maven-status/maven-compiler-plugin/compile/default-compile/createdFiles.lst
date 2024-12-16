@@ -1,7 +1,9 @@
+gui/Window$6.class
 logic/Graficos.class
 logic/Excel.class
 gui/Window$5.class
 main/Main$1.class
+logic/PDF.class
 gui/Window$4.class
 gui/Window.class
 main/Main.class

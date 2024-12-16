@@ -8,6 +8,7 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import logic.Excel;
 import logic.Graficos;
+import logic.PDF;
 
 public class Window extends javax.swing.JPanel {
     
@@ -54,6 +55,7 @@ public class Window extends javax.swing.JPanel {
         logoEquipos = new javax.swing.JLabel();
         buttonGraficoPuntos = new javax.swing.JButton();
         botonGraficoRebotes = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         logoPanel = new javax.swing.JPanel();
         informador = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
@@ -289,7 +291,7 @@ public class Window extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.ipadx = 8;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 14);
         panelJugadores.add(bChicagoBulls, gridBagConstraints);
@@ -303,7 +305,7 @@ public class Window extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.ipadx = 8;
         gridBagConstraints.insets = new java.awt.Insets(0, 14, 0, 0);
         panelJugadores.add(bAtlantaHawks, gridBagConstraints);
@@ -311,7 +313,7 @@ public class Window extends javax.swing.JPanel {
         cbEquipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jalen  Smith", "Adama Sanogo", "Patrick Williams", "Josh Giddey", "Jevon Carter" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.ipadx = 42;
         gridBagConstraints.ipady = 6;
@@ -334,7 +336,7 @@ public class Window extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         panelJugadores.add(buttonGraficoPuntos, gridBagConstraints);
 
         botonGraficoRebotes.setText("Grafico rebotes");
@@ -345,8 +347,20 @@ public class Window extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         panelJugadores.add(botonGraficoRebotes, gridBagConstraints);
+
+        jButton1.setText("Generar PDF");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        panelJugadores.add(jButton1, gridBagConstraints);
 
         TabbedPane.addTab("Jugador", panelJugadores);
 
@@ -460,7 +474,7 @@ public class Window extends javax.swing.JPanel {
         // TODO add your handling code here:
         boolean equipo = bChicagoBulls.isSelected();
         String jugador = cbEquipos.getSelectedItem().toString();
-        Graficos.graficoPuntos(equipo, jugador);
+        Graficos.graficoPersonalizado(equipo, jugador, "Puntos", 11);
         informador.setText("Grafico creado");
         informador.setForeground(Color.green);
         
@@ -474,6 +488,15 @@ public class Window extends javax.swing.JPanel {
         informador.setText("Grafico creado");
         informador.setForeground(Color.green);
     }//GEN-LAST:event_botonGraficoRebotesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        boolean equipo = bChicagoBulls.isSelected();
+        String jugador = cbEquipos.getSelectedItem().toString();
+        PDF.pdf(equipo, jugador);
+        informador.setText("PDF creado");
+        informador.setForeground(Color.green);
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private boolean fieldEmpty(JTextField dato){
         String text = dato.getText();
@@ -494,6 +517,7 @@ public class Window extends javax.swing.JPanel {
     private javax.swing.JTextField faltasCometidas;
     private javax.swing.JTextField faltasRecibidas;
     private javax.swing.JLabel informador;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

@@ -32,8 +32,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class Graficos {
     
-    public static void graficoPuntos(boolean equipo, String jugador) {
-        int[] arrayPuntos = informacion(equipo, jugador,11);
+    public static void graficoPersonalizado(boolean equipo, String jugador, String categoria, int columna) {
+        double[] arrayPuntos = informacion(equipo, jugador, columna);
         double media = 0;
         for(int i = 0; i< arrayPuntos.length; i++) {
             media += arrayPuntos[i];
@@ -44,12 +44,12 @@ public class Graficos {
         DefaultCategoryDataset lineDataset = new DefaultCategoryDataset();
         for(int i = 0; i<arrayPuntos.length; i++) {
             String partido = "Partido" + (i+1);
-            barDataset.addValue(arrayPuntos[i], "Puntos", partido);
+            barDataset.addValue(arrayPuntos[i], categoria , partido);
             lineDataset.addValue(media, "Media", partido);
         }
 
         CategoryAxis categoryAxis = new CategoryAxis("Partidos");
-        NumberAxis numberAxis = new NumberAxis("Puntos");
+        NumberAxis numberAxis = new NumberAxis(categoria);
         BarRenderer barRenderer = new BarRenderer();
         LineAndShapeRenderer lineRenderer = new LineAndShapeRenderer();
         
@@ -62,7 +62,7 @@ public class Graficos {
         plot.setRenderer(1, lineRenderer);
         plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
     
-        JFreeChart grafico = new JFreeChart("Puntos " + jugador, JFreeChart.DEFAULT_TITLE_FONT, plot, true);
+        JFreeChart grafico = new JFreeChart(categoria + " " + jugador, JFreeChart.DEFAULT_TITLE_FONT, plot, true);
 
         BarRenderer renderer = (BarRenderer) plot.getRenderer();
         renderer.setSeriesPaint(0, Color.GREEN);
@@ -78,7 +78,7 @@ public class Graficos {
                     return;
                 }
             }
-            archivo = new File("Graficas/" + jugador , "Puntuacion.jpg");
+            archivo = new File("Graficas/" + jugador , categoria + ".jpg");
             ChartUtils.saveChartAsJPEG(archivo, grafico, 800, 600);
             System.out.println("Gráfico guardado en: " + archivo.getAbsolutePath());
         } catch (IOException e) {
@@ -87,7 +87,7 @@ public class Graficos {
     }
     
     public static void graficoRebotes(boolean equipo, String jugador) {
-        int[] arrayPuntos = informacion(equipo, jugador,8);
+        double[] arrayPuntos = informacion(equipo, jugador,8);
 
         DefaultCategoryDataset lineDataset = new DefaultCategoryDataset();
         for(int i = 0; i<arrayPuntos.length; i++) {
@@ -96,7 +96,7 @@ public class Graficos {
         }
 
         JFreeChart grafico = ChartFactory.createLineChart(
-            "Rebotes" + jugador,    // Título
+            "Rebotes " + jugador,    // Título
             "Partidos",             // Etiqueta del eje X
             "Rebotes",              // Etiqueta del eje Y
             lineDataset             // Conjunto de datos
@@ -121,8 +121,8 @@ public class Graficos {
     }
     
     
-    private static int[] informacion(boolean equipo, String jugador, int columna) {
-        int[] puntos = null;
+    public static double[] informacion(boolean equipo, String jugador, int columna) {
+        double[] puntos = null;
         String nombreArchivo;
         String nombreHoja = jugador;
         if(equipo) {
@@ -135,14 +135,15 @@ public class Graficos {
         try (Workbook libroTrabajo = archivoExistente ? WorkbookFactory.create(Files.newInputStream(Paths.get(nombreArchivo))) : new XSSFWorkbook()) {
             Sheet hoja = libroTrabajo.getSheet(nombreHoja);
             
-            if(hoja == null) return new int[] {};
+            if(hoja == null) return new double[] {};
             
             int filaNumero = hoja.getPhysicalNumberOfRows();
-            puntos = new int[filaNumero-1];
+            puntos = new double[filaNumero-1];
             
             for(int i = 1; i< filaNumero; i++) {
                 Row fila = hoja.getRow(i);
-                puntos[i-1] = (int) Double.parseDouble(fila.getCell(columna).toString());
+                puntos[i-1] = fila.getCell(columna).getNumericCellValue();
+
             }
  
         } catch (IOException e) { e.getMessage();}

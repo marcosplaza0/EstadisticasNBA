@@ -22,6 +22,39 @@ __Las dependencias hay que añadirlas al archivo pom.xml__
         <artifactId>poi-ooxml</artifactId>
         <version>4.1.2</version>
     </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.6.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>itextpdf</artifactId>
+        <version>5.5.13.3</version>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-params</artifactId>
+        <version>5.6.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.6.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.netbeans.external</groupId>
+        <artifactId>AbsoluteLayout</artifactId>
+        <version>RELEASE190</version>
+    </dependency>
+    <dependency>
+        <groupId>org.jfree</groupId>
+        <artifactId>jfreechart</artifactId>
+        <version>1.5.3</version>
+    </dependency>
 </dependencies>
 ```
 
@@ -48,6 +81,12 @@ __Las dependencias hay que añadirlas al archivo pom.xml__
 ## Versión 4.5: 
   Haced también una gráfica de líneas para los rebotes y añadid a la de los puntos una de líneas donde salga la media de los puntos de ese jugador. 
   Meted las gráficas en una carpeta que se llame "gráficas" y que dentro tenga una carpeta para cada jugador.
+
+## Versión 5.0: 
+  Tiene que generar un PDF para el jugador seleccionado. En este, tiene que salir el nombre del jugador y del equipo, así como los gráficos para puntos, rebotes y 
+  asistencias de la misma forma que hicimos la de puntos en la versión 4.5. Para acabar, hay que poner una sección que ponga "Otras estadísticas" en la que salgan en 
+  texto sus medias de triples metidos por partido, de %FG, de %eFG y de %TS, saliendo colocados en dos líneas (como si fuesen dos columnas pero sin las líneas de tabla). 
+  Todo tiene que coger en una hoja y la ventana de la aplicación no se podrá hacer más pequeña que el tamaño mínimo para recoger todos los componentes.
 
 ## Muchas gracias por tomar el tiempo de leer esto 🎁
 -    Comenta a otros sobre este proyecto 📢
