@@ -52,7 +52,8 @@ public class Window extends javax.swing.JPanel {
         bAtlantaHawks = new javax.swing.JRadioButton();
         cbEquipos = new javax.swing.JComboBox<>();
         logoEquipos = new javax.swing.JLabel();
-        buttonGrafico = new javax.swing.JButton();
+        buttonGraficoPuntos = new javax.swing.JButton();
+        botonGraficoRebotes = new javax.swing.JButton();
         logoPanel = new javax.swing.JPanel();
         informador = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
@@ -325,17 +326,27 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         panelJugadores.add(logoEquipos, gridBagConstraints);
 
-        buttonGrafico.setText("Sacar Grafico");
-        buttonGrafico.addActionListener(new java.awt.event.ActionListener() {
+        buttonGraficoPuntos.setText("Grafico puntos");
+        buttonGraficoPuntos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonGraficoActionPerformed(evt);
+                buttonGraficoPuntosActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        panelJugadores.add(buttonGrafico, gridBagConstraints);
+        panelJugadores.add(buttonGraficoPuntos, gridBagConstraints);
+
+        botonGraficoRebotes.setText("Grafico rebotes");
+        botonGraficoRebotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGraficoRebotesActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
+        panelJugadores.add(botonGraficoRebotes, gridBagConstraints);
 
         TabbedPane.addTab("Jugador", panelJugadores);
 
@@ -445,15 +456,24 @@ public class Window extends javax.swing.JPanel {
         cbEquipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trae Young", "David Roddy", "Kobe Bufkin", "Dominick Barlow", "Cody Zeller" }));
     }//GEN-LAST:event_bAtlantaHawksActionPerformed
 
-    private void buttonGraficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGraficoActionPerformed
+    private void buttonGraficoPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGraficoPuntosActionPerformed
         // TODO add your handling code here:
         boolean equipo = bChicagoBulls.isSelected();
         String jugador = cbEquipos.getSelectedItem().toString();
-        Graficos.grafico(equipo, jugador);
+        Graficos.graficoPuntos(equipo, jugador);
         informador.setText("Grafico creado");
         informador.setForeground(Color.green);
         
-    }//GEN-LAST:event_buttonGraficoActionPerformed
+    }//GEN-LAST:event_buttonGraficoPuntosActionPerformed
+
+    private void botonGraficoRebotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGraficoRebotesActionPerformed
+        // TODO add your handling code here:
+        boolean equipo = bChicagoBulls.isSelected();
+        String jugador = cbEquipos.getSelectedItem().toString();
+        Graficos.graficoRebotes(equipo, jugador);
+        informador.setText("Grafico creado");
+        informador.setForeground(Color.green);
+    }//GEN-LAST:event_botonGraficoRebotesActionPerformed
     
     private boolean fieldEmpty(JTextField dato){
         String text = dato.getText();
@@ -466,7 +486,8 @@ public class Window extends javax.swing.JPanel {
     private javax.swing.JTextField asistencias;
     private javax.swing.JRadioButton bAtlantaHawks;
     private javax.swing.JRadioButton bChicagoBulls;
-    private javax.swing.JButton buttonGrafico;
+    private javax.swing.JButton botonGraficoRebotes;
+    private javax.swing.JButton buttonGraficoPuntos;
     private javax.swing.JComboBox<String> cbEquipos;
     private javax.swing.JTextField dobles;
     private javax.swing.ButtonGroup equipos;

@@ -17,8 +17,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.DatasetRenderingOrder;
 import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
@@ -27,30 +32,53 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class Graficos {
     
-    public static void grafico(boolean equipo, String jugador) {
-        int[] arrayPuntos = puntuajes(equipo, jugador);
+    public static void graficoPuntos(boolean equipo, String jugador) {
+        int[] arrayPuntos = informacion(equipo, jugador,11);
+        double media = 0;
+        for(int i = 0; i< arrayPuntos.length; i++) {
+            media += arrayPuntos[i];
+        }
+        media /= arrayPuntos.length;
 
-        // Crear el conjunto de datos (dataset)
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        DefaultCategoryDataset barDataset = new DefaultCategoryDataset();
+        DefaultCategoryDataset lineDataset = new DefaultCategoryDataset();
         for(int i = 0; i<arrayPuntos.length; i++) {
-            dataset.addValue(arrayPuntos[i], "Puntos", "Partido " + i);
+            String partido = "Partido" + (i+1);
+            barDataset.addValue(arrayPuntos[i], "Puntos", partido);
+            lineDataset.addValue(media, "Media", partido);
         }
 
-        // Crear el gráfico
-        JFreeChart grafico = ChartFactory.createBarChart(
-            "jugador", // Título
-            "Partidos",           // Etiqueta del eje X
-            "Puntos",              // Etiqueta del eje Y
-            dataset                 // Conjunto de datos
-        );
+        CategoryAxis categoryAxis = new CategoryAxis("Partidos");
+        NumberAxis numberAxis = new NumberAxis("Puntos");
+        BarRenderer barRenderer = new BarRenderer();
+        LineAndShapeRenderer lineRenderer = new LineAndShapeRenderer();
+        
+        CategoryPlot plot = new CategoryPlot();
+        plot.setDomainAxis(categoryAxis);
+        plot.setRangeAxis(numberAxis);
+        plot.setDataset(0, barDataset);
+        plot.setRenderer(0, barRenderer);
+        plot.setDataset(1, lineDataset);
+        plot.setRenderer(1, lineRenderer);
+        plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
+    
+        JFreeChart grafico = new JFreeChart("Puntos " + jugador, JFreeChart.DEFAULT_TITLE_FONT, plot, true);
 
-        CategoryPlot plot = grafico.getCategoryPlot();
         BarRenderer renderer = (BarRenderer) plot.getRenderer();
         renderer.setSeriesPaint(0, Color.GREEN);
+        categoryAxis.setCategoryLabelPositions(CategoryLabelPositions.UP_45);
         
-        // Guardar el gráfico como archivo JPG
         try {
-            File archivo = new File(jugador + ".jpg");
+            File archivo = new File("Graficas/" + jugador);
+            if (!archivo.exists()) {
+                if (archivo.mkdirs()) {
+                    System.out.println("Carpeta creada");
+                } else {
+                    System.err.println("No se pudo crear la carpeta.");
+                    return;
+                }
+            }
+            archivo = new File("Graficas/" + jugador , "Puntuacion.jpg");
             ChartUtils.saveChartAsJPEG(archivo, grafico, 800, 600);
             System.out.println("Gráfico guardado en: " + archivo.getAbsolutePath());
         } catch (IOException e) {
@@ -58,7 +86,42 @@ public class Graficos {
         }
     }
     
-    private static int[] puntuajes(boolean equipo, String jugador) {
+    public static void graficoRebotes(boolean equipo, String jugador) {
+        int[] arrayPuntos = informacion(equipo, jugador,8);
+
+        DefaultCategoryDataset lineDataset = new DefaultCategoryDataset();
+        for(int i = 0; i<arrayPuntos.length; i++) {
+            String partido = "Partido" + (i+1);
+            lineDataset.addValue(arrayPuntos[i], "Rebotes", partido);
+        }
+
+        JFreeChart grafico = ChartFactory.createLineChart(
+            "Rebotes" + jugador,    // Título
+            "Partidos",             // Etiqueta del eje X
+            "Rebotes",              // Etiqueta del eje Y
+            lineDataset             // Conjunto de datos
+        );
+        
+        try {
+            File archivo = new File("Graficas/" + jugador);
+            if (!archivo.exists()) {
+                if (archivo.mkdirs()) {
+                    System.out.println("Carpeta creada");
+                } else {
+                    System.err.println("No se pudo crear la carpeta.");
+                    return;
+                }
+            }
+            archivo = new File("Graficas/" + jugador, "Rebotes.jpg");
+            ChartUtils.saveChartAsJPEG(archivo, grafico, 800, 600);
+            System.out.println("Gráfico guardado en: " + archivo.getAbsolutePath());
+        } catch (IOException e) {
+            System.err.println("Error al guardar el gráfico: " + e.getMessage());
+        }
+    }
+    
+    
+    private static int[] informacion(boolean equipo, String jugador, int columna) {
         int[] puntos = null;
         String nombreArchivo;
         String nombreHoja = jugador;
@@ -79,7 +142,7 @@ public class Graficos {
             
             for(int i = 1; i< filaNumero; i++) {
                 Row fila = hoja.getRow(i);
-                puntos[i-1] = (int) Double.parseDouble(fila.getCell(11).toString());
+                puntos[i-1] = (int) Double.parseDouble(fila.getCell(columna).toString());
             }
  
         } catch (IOException e) { e.getMessage();}

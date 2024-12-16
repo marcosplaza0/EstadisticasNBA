@@ -45,6 +45,10 @@ __Las dependencias hay que añadirlas al archivo pom.xml__
   Poned un botón que sea  para crear un gráfico de barra con los puntos del jugador seleccionado, siendo cada una de las barras uno de sus partidos. 
   Dad formato al gráfico y haced que se sobrescriba si se genera varias veces para el mismo jugador.
 
+## Versión 4.5: 
+  Haced también una gráfica de líneas para los rebotes y añadid a la de los puntos una de líneas donde salga la media de los puntos de ese jugador. 
+  Meted las gráficas en una carpeta que se llame "gráficas" y que dentro tenga una carpeta para cada jugador.
+
 ## Muchas gracias por tomar el tiempo de leer esto 🎁
 -    Comenta a otros sobre este proyecto 📢
 -    Con ❤️ por [marcosplaza0](https://github.com/marcosplaza0)
