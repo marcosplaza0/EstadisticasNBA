@@ -4,8 +4,17 @@
  */
 package gui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import logic.Excel;
 import logic.Graficos;
 import logic.PDF;
@@ -36,18 +45,18 @@ public class Window extends javax.swing.JPanel {
         robos = new javax.swing.JTextField();
         faltasCometidas = new javax.swing.JTextField();
         perdidasBalon = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        javax.swing.JLabel jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        texto1 = new gui.Texto();
+        texto3 = new gui.Texto();
+        texto4 = new gui.Texto();
+        texto5 = new gui.Texto();
+        texto6 = new gui.Texto();
+        texto7 = new gui.Texto();
+        texto8 = new gui.Texto();
+        texto9 = new gui.Texto();
+        texto10 = new gui.Texto();
+        texto11 = new gui.Texto();
+        texto12 = new gui.Texto();
+        texto2 = new gui.Texto();
         panelJugadores = new javax.swing.JPanel();
         bChicagoBulls = new javax.swing.JRadioButton();
         bAtlantaHawks = new javax.swing.JRadioButton();
@@ -102,7 +111,7 @@ public class Window extends javax.swing.JPanel {
         rebotes.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
         rebotes.setPreferredSize(new java.awt.Dimension(65, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 22;
         panelPuntuaje.add(rebotes, gridBagConstraints);
 
@@ -118,7 +127,7 @@ public class Window extends javax.swing.JPanel {
         triples.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
         triples.setPreferredSize(new java.awt.Dimension(65, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         panelPuntuaje.add(triples, gridBagConstraints);
 
@@ -126,7 +135,7 @@ public class Window extends javax.swing.JPanel {
         dobles.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
         dobles.setPreferredSize(new java.awt.Dimension(65, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
         panelPuntuaje.add(dobles, gridBagConstraints);
 
@@ -134,7 +143,7 @@ public class Window extends javax.swing.JPanel {
         libres.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
         libres.setPreferredSize(new java.awt.Dimension(65, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 10;
         panelPuntuaje.add(libres, gridBagConstraints);
 
@@ -142,7 +151,7 @@ public class Window extends javax.swing.JPanel {
         asistencias.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
         asistencias.setPreferredSize(new java.awt.Dimension(65, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 14;
         panelPuntuaje.add(asistencias, gridBagConstraints);
 
@@ -150,7 +159,7 @@ public class Window extends javax.swing.JPanel {
         robos.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
         robos.setPreferredSize(new java.awt.Dimension(65, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 18;
         panelPuntuaje.add(robos, gridBagConstraints);
 
@@ -170,107 +179,77 @@ public class Window extends javax.swing.JPanel {
         gridBagConstraints.gridy = 18;
         panelPuntuaje.add(perdidasBalon, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Tiros libres intentados");
-        jLabel1.setPreferredSize(new java.awt.Dimension(170, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        panelPuntuaje.add(jLabel1, gridBagConstraints);
-
-        jLabel2.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Tiros de campo totales");
-        jLabel2.setPreferredSize(new java.awt.Dimension(170, 20));
+        texto1.setText("Tiros campo totales");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        panelPuntuaje.add(jLabel2, gridBagConstraints);
+        panelPuntuaje.add(texto1, gridBagConstraints);
 
-        jLabel3.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Triples");
-        jLabel3.setToolTipText("");
+        texto3.setText("Tiros libres intentados");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        panelPuntuaje.add(jLabel3, gridBagConstraints);
-
-        jLabel4.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Dobles");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        panelPuntuaje.add(jLabel4, gridBagConstraints);
+        panelPuntuaje.add(texto3, gridBagConstraints);
 
-        jLabel5.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Libres");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
-        panelPuntuaje.add(jLabel5, gridBagConstraints);
-
-        jLabel6.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Rebotes");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 20;
-        panelPuntuaje.add(jLabel6, gridBagConstraints);
-
-        jLabel7.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Asistencias");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
-        panelPuntuaje.add(jLabel7, gridBagConstraints);
-
-        jLabel8.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Robos");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 16;
-        panelPuntuaje.add(jLabel8, gridBagConstraints);
-
-        jLabel9.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Tapones");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 20;
-        panelPuntuaje.add(jLabel9, gridBagConstraints);
-
-        jLabel10.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Faltas recibidas");
-        jLabel10.setPreferredSize(new java.awt.Dimension(170, 20));
+        texto4.setText("Faltas recibidas");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        panelPuntuaje.add(jLabel10, gridBagConstraints);
+        panelPuntuaje.add(texto4, gridBagConstraints);
 
-        jLabel11.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Faltas cometidas");
-        jLabel11.setPreferredSize(new java.awt.Dimension(170, 20));
+        texto5.setText("Faltas cometidas");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
-        panelPuntuaje.add(jLabel11, gridBagConstraints);
+        panelPuntuaje.add(texto5, gridBagConstraints);
 
-        jLabel12.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Perdidas de balon");
-        jLabel12.setPreferredSize(new java.awt.Dimension(170, 20));
+        texto6.setText("Perdidas de balon");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 16;
-        panelPuntuaje.add(jLabel12, gridBagConstraints);
+        panelPuntuaje.add(texto6, gridBagConstraints);
+
+        texto7.setText("Tapones");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 20;
+        panelPuntuaje.add(texto7, gridBagConstraints);
+
+        texto8.setText("Triples");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        panelPuntuaje.add(texto8, gridBagConstraints);
+
+        texto9.setText("Dobles");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        panelPuntuaje.add(texto9, gridBagConstraints);
+
+        texto10.setText("Libres");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        panelPuntuaje.add(texto10, gridBagConstraints);
+
+        texto11.setText("Asistencias");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 12;
+        panelPuntuaje.add(texto11, gridBagConstraints);
+
+        texto12.setText("Robos");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 16;
+        panelPuntuaje.add(texto12, gridBagConstraints);
+
+        texto2.setText("Rebotes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 20;
+        panelPuntuaje.add(texto2, gridBagConstraints);
 
         TabbedPane.addTab("Puntuaje", panelPuntuaje);
 
@@ -448,37 +427,28 @@ public class Window extends javax.swing.JPanel {
             int pb = Integer.parseInt(perdidasBalon.getText());
             int fc = Integer.parseInt(faltasCometidas.getText());
             int tca = t + d;
-            boolean equipo = bChicagoBulls.isSelected();
-            String jugador = cbEquipos.getSelectedItem().toString();
-            
-            Excel.excel(equipo, jugador, tca, tct, tli, t, d, l, re, asis, ro, ta, fr, pb, fc);
-            informador.setText("Accion Completada");
-            informador.setForeground(Color.green);
+            if(validarTiros(tca,tct)) {
+                boolean equipo = bChicagoBulls.isSelected();
+                String jugador = cbEquipos.getSelectedItem().toString();
+
+                Excel.excel(equipo, jugador, tca, tct, tli, t, d, l, re, asis, ro, ta, fr, pb, fc);
+                informador.setText("Accion Completada");
+                informador.setForeground(Color.green);
+            } else {
+                informador.setText("Revisa los datos");
+                informador.setForeground(Color.red);
+            }
         }
-        
     }//GEN-LAST:event_addInfoActionPerformed
 
-    private void bChicagoBullsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bChicagoBullsActionPerformed
-        // TODO add your handling code here:
-        logoEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chicagoBulls.png")));
-        cbEquipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jalen  Smith", "Adama Sanogo", "Patrick Williams", "Josh Giddey", "Jevon Carter" }));
-    }//GEN-LAST:event_bChicagoBullsActionPerformed
-
-    private void bAtlantaHawksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtlantaHawksActionPerformed
-        // TODO add your handling code here:
-        logoEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/atlantaHawks.png")));
-        cbEquipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trae Young", "David Roddy", "Kobe Bufkin", "Dominick Barlow", "Cody Zeller" }));
-    }//GEN-LAST:event_bAtlantaHawksActionPerformed
-
-    private void buttonGraficoPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGraficoPuntosActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         boolean equipo = bChicagoBulls.isSelected();
         String jugador = cbEquipos.getSelectedItem().toString();
-        Graficos.graficoPersonalizado(equipo, jugador, "Puntos", 11);
-        informador.setText("Grafico creado");
+        PDF.pdf(equipo, jugador);
+        informador.setText("PDF creado");
         informador.setForeground(Color.green);
-        
-    }//GEN-LAST:event_buttonGraficoPuntosActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void botonGraficoRebotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGraficoRebotesActionPerformed
         // TODO add your handling code here:
@@ -489,18 +459,70 @@ public class Window extends javax.swing.JPanel {
         informador.setForeground(Color.green);
     }//GEN-LAST:event_botonGraficoRebotesActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonGraficoPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGraficoPuntosActionPerformed
         // TODO add your handling code here:
         boolean equipo = bChicagoBulls.isSelected();
         String jugador = cbEquipos.getSelectedItem().toString();
-        PDF.pdf(equipo, jugador);
-        informador.setText("PDF creado");
+        Graficos.graficoPersonalizado(equipo, jugador, "Puntos", 11);
+        informador.setText("Grafico creado");
         informador.setForeground(Color.green);
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_buttonGraficoPuntosActionPerformed
+
+    private void bAtlantaHawksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtlantaHawksActionPerformed
+        // TODO add your handling code here:
+        logoEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/atlantaHawks.png")));
+        cbEquipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trae Young", "David Roddy", "Kobe Bufkin", "Dominick Barlow", "Cody Zeller" }));
+    }//GEN-LAST:event_bAtlantaHawksActionPerformed
+
+    private void bChicagoBullsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bChicagoBullsActionPerformed
+        // TODO add your handling code here:
+        logoEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chicagoBulls.png")));
+        cbEquipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jalen  Smith", "Adama Sanogo", "Patrick Williams", "Josh Giddey", "Jevon Carter" }));
+    }//GEN-LAST:event_bChicagoBullsActionPerformed
     
     private boolean fieldEmpty(JTextField dato){
         String text = dato.getText();
         return text == null || text.isEmpty();
+    }
+    
+    private boolean validarTiros(int tirosMetidos, int tirosTirados) {
+        if(tirosMetidos > tirosTirados) {
+            JFrame condicionesFrame = new JFrame("Error");
+            condicionesFrame.setSize(1000, 300);
+            condicionesFrame.setLayout(new BorderLayout());
+            
+            JPanel panel = new JPanel();
+            panel.setBackground(new Color(135, 206, 235)); // Un azul claro (Sky Blue)
+            condicionesFrame.add(panel, BorderLayout.CENTER);
+
+            JLabel textoCondiciones = new JLabel("Los tiros metidos son superiores a los tirados, revisa los datos");
+            Font font = new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 24);
+            textoCondiciones.setFont(font);
+            textoCondiciones.setForeground(Color.RED);
+            
+            textoCondiciones.setHorizontalAlignment(SwingConstants.CENTER);
+            condicionesFrame.add(textoCondiciones, BorderLayout.CENTER);
+
+            condicionesFrame.setVisible(true);
+            return false;
+        }
+        return true;
+    }
+    
+    public void sizes(int num) {
+        texto1.setSizeMode(num);
+        texto2.setSizeMode(num);
+        texto3.setSizeMode(num);
+        texto4.setSizeMode(num);
+        texto5.setSizeMode(num);
+        texto6.setSizeMode(num);
+        texto7.setSizeMode(num);
+        texto8.setSizeMode(num);
+        texto9.setSizeMode(num);
+        texto10.setSizeMode(num);
+        texto11.setSizeMode(num);
+        texto12.setSizeMode(num);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -518,17 +540,6 @@ public class Window extends javax.swing.JPanel {
     private javax.swing.JTextField faltasRecibidas;
     private javax.swing.JLabel informador;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField libres;
     private javax.swing.JLabel logo;
@@ -540,6 +551,18 @@ public class Window extends javax.swing.JPanel {
     private javax.swing.JTextField rebotes;
     private javax.swing.JTextField robos;
     private javax.swing.JTextField tapones;
+    private gui.Texto texto1;
+    private gui.Texto texto10;
+    private gui.Texto texto11;
+    private gui.Texto texto12;
+    private gui.Texto texto2;
+    private gui.Texto texto3;
+    private gui.Texto texto4;
+    private gui.Texto texto5;
+    private gui.Texto texto6;
+    private gui.Texto texto7;
+    private gui.Texto texto8;
+    private gui.Texto texto9;
     private javax.swing.JTextField tirosCampoTotales;
     private javax.swing.JTextField tirosLibresTotales;
     private javax.swing.JTextField triples;

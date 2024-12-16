@@ -88,6 +88,14 @@ __Las dependencias hay que añadirlas al archivo pom.xml__
   texto sus medias de triples metidos por partido, de %FG, de %eFG y de %TS, saliendo colocados en dos líneas (como si fuesen dos columnas pero sin las líneas de tabla). 
   Todo tiene que coger en una hoja y la ventana de la aplicación no se podrá hacer más pequeña que el tamaño mínimo para recoger todos los componentes.
 
+## Versión 6.0: 
+  Tenéis que cambiar todas las etiquetas de texto por un componente creado por vosotros. Este tiene que heredar de jLabel, 
+  tiene que tener algún cambio en el formato del texto y tiene que tener un método que lo ponga en pequeño si se pone un 1, en mediano si se pone un 2 y en grande si se pone un 3.
+  Desde un menú es desde donde se podrá seleccionar esta opción. Se verá cuál es la que está seleccionada. También se tendrá que añadir un elemento en los menús donde ponga 
+  "Condiciones de servicio" y donde salga un nuevo jFrame al pulsar. Este no se podrá cerrar a menos que se pulse sobre una casilla de verificación. 
+  Por último, tendrá que haber una opción en la que compruebe que no se ha puesto que se han metido más tiros que los tirados y, si es incorrecto, 
+  salga otro jFrame diciendo que está mal y que se van a cambiar los tiros metidos, cosa que se tendrá que hacer.
+
 ## Muchas gracias por tomar el tiempo de leer esto 🎁
 -    Comenta a otros sobre este proyecto 📢
 -    Con ❤️ por [marcosplaza0](https://github.com/marcosplaza0)

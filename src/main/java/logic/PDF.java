@@ -82,7 +82,7 @@ public class PDF {
             pa= new Paragraph("Triples: " +String.format("%-60s", String.format("%.2f", mediaTriples)) + " %FG: " + String.format("%.2f", mediaFG) + "%");
             pa.setAlignment(Element.ALIGN_CENTER);
             document.add(pa);
-            pa= new Paragraph("%eFG: " +String.format("%-60s", String.format("%.2f", mediaEFG)) + " %TS: " + String.format("%.2f", mediaTS) + "%");
+            pa= new Paragraph("%eFG: " +String.format("%-60s", String.format("%.2f", mediaEFG) + "%") + " %TS: " + String.format("%.2f", mediaTS) + "%");
             pa.setAlignment(Element.ALIGN_CENTER);
             document.add(pa);
             
